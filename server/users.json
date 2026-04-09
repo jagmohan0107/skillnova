@@ -1,0 +1,92 @@
+[
+  {
+    "id": "1774448002134",
+    "name": "survi",
+    "email": "suravirani0405@gmail.com",
+    "password": "$2a$10$LQECd9rNgSqrwoUI5God0.ng/r5b5zAjiZH4ddHeRigH0ayDga6RG",
+    "college": "nist",
+    "year": "1",
+    "domain": "ai",
+    "stats": {
+      "matches": 0,
+      "battles": 0,
+      "readiness": 15
+    },
+    "createdAt": "2026-03-25T14:13:22.134Z"
+  },
+  {
+    "id": "1774448157230",
+    "name": "Digital Voyager",
+    "email": "voyager@nexus.ai",
+    "password": "$2a$10$s8jwKSJSkOseybcyXlVR0.RXPsTjQ6cN/t0g53u.YPe1JHJwopjZy",
+    "college": "SkillNova Labs",
+    "year": "4",
+    "domain": "Full Stack Mastery",
+    "stats": {
+      "matches": 0,
+      "battles": 0,
+      "readiness": 15
+    },
+    "createdAt": "2026-03-25T14:15:57.231Z"
+  },
+  {
+    "id": "1774454050043",
+    "name": "Suravi",
+    "email": "xyz@gmail.com",
+    "password": "$2a$10$TqE4oVqhOPPyM7fV9T6oVu4.DJSbFO.gVchsnGPQVMfvDU7H6lsQu",
+    "college": "nist",
+    "year": "2",
+    "domain": "ai",
+    "stats": {
+      "matches": 0,
+      "battles": 0,
+      "readiness": 15
+    },
+    "createdAt": "2026-03-25T15:54:10.043Z"
+  },
+  {
+    "id": "1774466091244",
+    "name": "AI Tester",
+    "email": "Password123!aitester@nexus.com",
+    "password": "$2a$10$dRQRY1X9NNiT3DP0nxz0j.qW8cyKo59pmSnz1NNvgJMUSI0V7lfa2",
+    "college": "AI University",
+    "year": "1",
+    "domain": "AI Researcher",
+    "stats": {
+      "matches": 0,
+      "battles": 0,
+      "readiness": 15
+    },
+    "createdAt": "2026-03-25T19:14:51.244Z"
+  },
+  {
+    "id": "1774467115514",
+    "name": "AI Tester",
+    "email": "aitester@nexus.com",
+    "password": "$2a$10$aDPsxgNmvZKVDq5JvI9lm.vCCNrEj9N/BoyEdYqvFaco2FphXDuE.",
+    "college": "AI University",
+    "year": "1",
+    "domain": "AI Researcher",
+    "stats": {
+      "matches": 0,
+      "battles": 0,
+      "readiness": 15
+    },
+    "createdAt": "2026-03-25T19:31:55.514Z"
+  },
+  {
+    "id": "1774467484545",
+    "name": "Test User",
+    "email": "test@example.com",
+    "password": "$2a$10$oH4ckBwYn.2kTdqw8ycS8ONOyPmSJBLRc1rQ2s3X4cttN0bDXZdJS",
+    "college": "Test College",
+    "year": "1",
+    "domain": "AI",
+    "stats": {
+      "matches": 0,
+      "battles": 0,
+      "readiness": 15
+    },
+    "createdAt": "2026-03-25T19:38:04.545Z"
+  }
+]
