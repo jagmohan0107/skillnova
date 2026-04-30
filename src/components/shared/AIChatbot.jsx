@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, Send, X, Sparkles, Brain, Zap, RotateCcw, Bot, User, ThumbsUp, ThumbsDown } from "lucide-react";
+import { AI_API_URL } from "../../config/apiConfig";
 import { cn } from "../../utils/cn";
 
 const QUICK_PROMPTS = [
@@ -69,7 +70,7 @@ const AIChatbot = () => {
     setIsTyping(true);
 
     try {
-      const res = await fetch("http://localhost:8000/api/chat", {
+      const res = await fetch(`${AI_API_URL}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

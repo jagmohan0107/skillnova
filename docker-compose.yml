@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - auth-service
+      - ai-service
+    networks:
+      - skillnova-network
+
+  auth-service:
+    build: ./server
+    volumes:
+      - ./server/users.json:/app/users.json
+    networks:
+      - skillnova-network
+
+  ai-service:
+    build: ./ai_backend
+    env_file:
+      - ./ai_backend/.env
+    networks:
+      - skillnova-network
+
+networks:
+  skillnova-network:
+    driver: bridge

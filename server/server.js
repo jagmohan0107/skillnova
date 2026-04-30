@@ -16,7 +16,7 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 
 const app = express();
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
 const SECRET_KEY = 'skillnova_neural_secret_2026';
 const DB_PATH = path.join(__dirname, 'users.json');
 

@@ -1,0 +1,37 @@
+services:
+  # 1. AI Engine (FastAPI)
+  - type: web
+    name: skillnova-ai-engine
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 8000
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+    rootDirectory: ai_backend
+
+  # 2. Auth Node (Express)
+  - type: web
+    name: skillnova-auth-node
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    rootDirectory: server
+
+  # 3. Skill UI (Frontend Static Site)
+  - type: static
+    name: skillnova-ui
+    env: static
+    buildCommand: npm install && npm run build
+    publishPath: ./dist
+    envVars:
+      - key: VITE_AUTH_API_URL
+        fromService:
+          name: skillnova-auth-node
+          type: web
+          property: host
+      - key: VITE_AI_API_URL
+        fromService:
+          name: skillnova-ai-engine
+          type: web
+          property: host

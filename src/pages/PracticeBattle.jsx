@@ -8,6 +8,7 @@ import {
   LayoutDashboard, Swords, Timer, Award, Lightbulb, X, CircleSlash, Flag, Trash2,
   Terminal, BarChart3, Radio
 } from "lucide-react";
+import { AI_API_URL } from "../config/apiConfig";
 import GlassCard from "../components/ui/GlassCard";
 
 // NEW SUCCESS EFFECT: Success Beam Component
@@ -265,7 +266,7 @@ const PracticeBattle = () => {
                             setScore(0);
                             
                             try {
-                                const res = await fetch("http://127.0.0.1:8000/api/generate-quiz", {
+                                const res = await fetch(`${AI_API_URL}/generate-quiz`, {
                                     method: "POST",
                                     headers: { "Content-Type": "application/json" },
                                     body: JSON.stringify({ subject, difficulty }),

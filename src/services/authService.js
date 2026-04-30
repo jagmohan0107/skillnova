@@ -3,7 +3,9 @@
  * Connects to the Node.js Express Server
  */
 
-const API_BASE_URL = '/api';
+import { AUTH_API_URL } from '../config/apiConfig';
+
+const API_BASE_URL = AUTH_API_URL;
 
 export const authService = {
   /**
