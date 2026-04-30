@@ -22,7 +22,7 @@ services:
   - type: web
     name: skillnova-ui
     env: static
-    buildCommand: npm install && npm run build
+    buildCommand: npm install --legacy-peer-deps && npm run build
     staticPublishPath: ./dist
     envVars:
       - key: VITE_AUTH_API_URL
