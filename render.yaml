@@ -4,7 +4,7 @@ services:
     name: skillnova-ai-engine
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port 8000
+    startCommand: uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}
     envVars:
       - key: GEMINI_API_KEY
         sync: false
@@ -19,7 +19,7 @@ services:
     rootDir: server
 
   # 3. Skill UI (Frontend Static Site)
-  - type: web
+  - type: static
     name: skillnova-ui
     env: static
     buildCommand: npm install --legacy-peer-deps && npm run build
@@ -29,9 +29,10 @@ services:
         fromService:
           name: skillnova-auth-node
           type: web
-          property: host
+          property: url
       - key: VITE_AI_API_URL
         fromService:
           name: skillnova-ai-engine
           type: web
-          property: host
+          property: url
+
