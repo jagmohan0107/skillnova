@@ -88,5 +88,21 @@
       "readiness": 15
     },
     "createdAt": "2026-03-25T19:38:04.545Z"
+  },
+  {
+    "id": "1777540862546",
+    "name": "sk jagmohan palo",
+    "email": "skjagmohanpalo@gmail.com",
+    "password": "$2a$10$401sPBVx5igLLWvauVezru9rB.6ujrHhfc37Wkl6U0JIBveQR6eVC",
+    "college": "nist",
+    "degree": "btech",
+    "year": "2",
+    "domain": "aiml",
+    "stats": {
+      "matches": 0,
+      "battles": 0,
+      "readiness": 15
+    },
+    "createdAt": "2026-04-30T09:21:02.547Z"
   }
 ]

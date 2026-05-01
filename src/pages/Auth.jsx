@@ -417,10 +417,20 @@ const Auth = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 flex items-center gap-3"
+                    className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 flex flex-col gap-2"
                   >
-                    <ShieldAlert className="w-5 h-5 text-red-500 shrink-0" />
-                    <p className="text-red-500 text-[10px] font-black uppercase tracking-widest leading-relaxed">{error}</p>
+                    <div className="flex items-center gap-3">
+                      <ShieldAlert className="w-5 h-5 text-red-500 shrink-0" />
+                      <p className="text-red-500 text-[10px] font-black uppercase tracking-widest leading-relaxed">
+                        {error.includes("Failed to fetch") ? "NETWORK_UPLINK_FAILURE: Connection Refused" : error}
+                      </p>
+                    </div>
+                    {error.includes("Failed to fetch") && (
+                      <div className="mt-2 pt-2 border-t border-red-500/20">
+                         <p className="text-[8px] text-white/30 uppercase font-bold">Attempted Node:</p>
+                         <p className="text-[9px] text-brand-primary/60 font-mono break-all mt-1">{import.meta.env.VITE_AUTH_API_URL || 'DEFAULT_LOCAL_NODE'}</p>
+                      </div>
+                    )}
                   </motion.div>
                 )}
               </AnimatePresence>

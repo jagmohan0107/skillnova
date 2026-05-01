@@ -13,12 +13,12 @@ const cleanUrl = (url) => {
   
   let sanitized = url.trim();
   
-  // Remove trailing slashes
-  sanitized = sanitized.replace(/\/+$/, '');
+  // Remove trailing slashes and common API suffixes if they were accidentally included in the base env var
+  sanitized = sanitized.replace(/\/+$/, '').replace(/\/api$/, '');
 
   // Add protocol if missing
   if (!sanitized.startsWith('http://') && !sanitized.startsWith('https://')) {
-    // If it's a localhost URL, use http, otherwise assume https for production
+    // If it's a localhost URL, use http, otherwise for anything else (especially .onrender.com), use https
     if (sanitized.includes('localhost') || sanitized.includes('127.0.0.1')) {
       sanitized = `http://${sanitized}`;
     } else {
