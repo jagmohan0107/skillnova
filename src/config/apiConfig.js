@@ -29,11 +29,27 @@ const cleanUrl = (url) => {
   return sanitized;
 };
 
-const rawAuthUrl = import.meta.env.VITE_AUTH_API_URL || 'http://localhost:5001';
-const rawAiUrl = import.meta.env.VITE_AI_API_URL || 'http://localhost:8000';
+const rawAuthUrl = import.meta.env.VITE_AUTH_API_URL;
+const rawAiUrl = import.meta.env.VITE_AI_API_URL;
 
-const baseAuth = cleanUrl(rawAuthUrl);
-const baseAi = cleanUrl(rawAiUrl);
+/**
+ * Smart Discovery: If env vars are missing on Render, attempt to derive them.
+ */
+const getDiscoveryUrl = (raw, type) => {
+  if (raw && raw !== "" && !raw.includes("localhost")) return raw;
+  
+  // If we are on Render but vars are missing, guess the URL
+  if (typeof window !== 'undefined' && window.location.hostname.includes('onrender.com')) {
+    console.warn(`[SkillNova Discovery] ${type} URL missing. Attempting auto-discovery...`);
+    if (type === 'AUTH') return 'https://skillnova-auth-node.onrender.com';
+    if (type === 'AI') return 'https://skillnova-ai-engine.onrender.com';
+  }
+  
+  return raw || (type === 'AUTH' ? 'http://localhost:5001' : 'http://localhost:8000');
+};
+
+const baseAuth = cleanUrl(getDiscoveryUrl(rawAuthUrl, 'AUTH'));
+const baseAi = cleanUrl(getDiscoveryUrl(rawAiUrl, 'AI'));
 
 export const AUTH_API_URL = `${baseAuth}/api`;
 export const AI_API_URL = `${baseAi}/api`;
@@ -41,4 +57,6 @@ export const AI_API_URL = `${baseAi}/api`;
 console.log(`[SkillNova Sync] Mode: ${isProduction ? 'PRODUCTION' : 'DEVELOPMENT'}`);
 console.log(`[SkillNova Sync] Auth Node: ${AUTH_API_URL}`);
 console.log(`[SkillNova Sync] AI Node: ${AI_API_URL}`);
+if (!rawAuthUrl) console.warn("[SkillNova Sync] WARNING: VITE_AUTH_API_URL is undefined. Using discovery/fallback.");
+
 
