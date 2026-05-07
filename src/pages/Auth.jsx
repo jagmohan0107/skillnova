@@ -110,9 +110,9 @@ const Auth = () => {
   return (
     <div className="min-h-screen flex items-center justify-center py-20 px-4 relative overflow-hidden">
       {/* Background glow and stars */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-primary/10 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 blur-[120px] rounded-full animate-pulse delay-1000" />
+      <div className="absolute inset-0 z-0 opacity-50">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-primary/10 blur-[80px] rounded-full" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 blur-[80px] rounded-full" />
       </div>
       
       <motion.div
@@ -123,16 +123,7 @@ const Auth = () => {
         <GlassCard className="p-12 border-emerald-500/20 shadow-[0_40px_100px_rgba(0,0,0,0.8)]">
             <div className="text-center mb-10 relative z-10">
               <motion.h2 
-                animate={{ 
-                  textShadow: [
-                    "0 0 10px rgba(34,197,94,0.5)", 
-                    "0 0 20px rgba(34,197,94,0.8)", 
-                    "0 0 10px rgba(34,197,94,0.5)"
-                  ],
-                  opacity: [1, 0.9, 1, 0.8, 1]
-                }}
-                transition={{ duration: 0.2, repeat: Infinity, repeatDelay: 3 }}
-                className="text-6xl font-black uppercase tracking-tighter text-white underline underline-offset-8 decoration-emerald-500/30"
+                className="text-6xl font-black uppercase tracking-tighter text-white underline underline-offset-8 decoration-emerald-500/30 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]"
               >
                 {isForgotPassword ? "RECOVERY" : (isLogin ? "WELCOME" : "WELCOME")}
               </motion.h2>
@@ -149,13 +140,13 @@ const Auth = () => {
             <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
               <AnimatePresence mode="wait">
                 {isForgotPassword ? (
-                   <motion.div
-                     key="recovery"
-                     initial={{ opacity: 0, height: 0 }}
-                     animate={{ opacity: 1, height: "auto" }}
-                     exit={{ opacity: 0, height: 0 }}
-                     className="space-y-6"
-                   >
+                    <motion.div
+                      key="recovery"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="space-y-6"
+                    >
                      {recoveryStep === "SUCCESS" ? (
                        <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-8 text-center space-y-6">
                          <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-brand-primary/40 flex items-center justify-center mx-auto shadow-[0_0_40px_rgba(16,185,129,0.3)]">
@@ -273,9 +264,9 @@ const Auth = () => {
                       {!isLogin && (
                         <motion.div
                           key="register-fields"
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
                           className="grid grid-cols-1 md:grid-cols-2 gap-6"
                         >
                           <div className="space-y-2">
