@@ -29,10 +29,10 @@ services:
         fromService:
           name: skillnova-auth-node
           type: web
-          property: url
+          property: host
       - key: VITE_AI_API_URL
         fromService:
           name: skillnova-ai-engine
           type: web
-          property: url
+          property: host
 
