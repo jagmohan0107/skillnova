@@ -19,7 +19,7 @@ services:
     rootDir: server
 
   # 3. Skill UI (Frontend Static Site)
-  - type: static_site
+  - type: web
     name: skillnova-ui
     env: static
     buildCommand: npm install --legacy-peer-deps && npm run build
